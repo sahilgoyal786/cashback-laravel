@@ -58,7 +58,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'cashback' => 'required|numeric',
+            'cashback' => 'required',
         ]);
         //
         Category::create($request->all());
@@ -105,7 +105,7 @@ class CategoriesController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'cashback' => 'required|numeric',
+            'cashback' => 'required',
         ]);
 
 
