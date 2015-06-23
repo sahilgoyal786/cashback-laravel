@@ -66,7 +66,7 @@
             <form class="navbar-form navbar-right">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Search Store" aria-describedby="basic-addon1">
                 </div>
             </form>
         </div>
