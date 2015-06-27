@@ -13,12 +13,12 @@
     "laracasts/flash": "^1.3",
     "fzaninotto/faker": "^1.5",
     "guzzlehttp/guzzle": "~4.0",
-    "laravel/socialite": "^2.0"
+    "laravel/socialite": "^2.0",
+    "greggilbert/recaptcha": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
-    "phpspec/phpspec": "~2.1",
-    "greggilbert/recaptcha": "^2.0"
+    "phpspec/phpspec": "~2.1"
   },
   "autoload": {
     "classmap": [
