@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('store_id')->unsigned();
             $table->string('name');
-            $table->float('cashback');
+            $table->string('cashback');
             $table->timestamps();
 
             $table->foreign('store_id')
