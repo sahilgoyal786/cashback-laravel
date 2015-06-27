@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/stores') }}">All Stores</a></li>
+                <li><a href="{{ url('/all_stores') }}">All Stores</a></li>
                 <li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
                                         role="button" aria-expanded="false">Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
