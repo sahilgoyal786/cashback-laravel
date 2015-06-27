@@ -1,0 +1,92 @@
+<?php $__env->startSection('content'); ?>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">All Offers
+                        <a href="<?php echo e(url('admin/offers/create')); ?>" class="pull-right">Add offer</a>
+                    </div>
+                    <div class="panel-body">
+                        <?php if(session('status')): ?>
+                            <div class="alert alert-success fade in">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <?php echo e(session('status')); ?>
+
+                            </div>
+                        <?php endif; ?>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Store</th>
+                                <th>Category</th>
+                                <th>Name</th>
+                                <th>Expiry Date</th>
+                                <th>Description</th>
+                                <th>Featured</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php if(count($offers)): ?>
+                                <?php foreach($offers as $offer): ?>
+                                    <tr>
+                                        <td><?php echo e($offer['id']); ?></td>
+                                        <td><img src="<?php echo e(asset($offer['store_image'])); ?>" class="img-thumbnail"
+                                                 style="max-height: 100px;max-width: 200px;"/></td>
+                                        <td><?php echo e($offer['category']); ?></td>
+                                        <td><?php echo e($offer['name']); ?></td>
+                                        <td><?php echo e($offer['expiry_date']->format('d-M-Y')); ?></td>
+                                        <td><?php echo e($offer['description']); ?></td>
+                                        <td><?php if($offer['featured']): ?><span class="glyphicon glyphicon-star"></span><?php endif; ?></td>
+                                        <td>
+                                            <a href="<?php echo e($offer['link']); ?>" target="_blank"
+                                               class="btn btn-default"
+                                               aria-label="Edit Offer">
+                                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                                                &nbsp;&nbsp;Visit Offer
+                                            </a>
+                                            <a href="<?php echo e(url('admin/offers/'.$offer['id'])); ?>/edit" type="button"
+                                               class="btn btn-default"
+                                               aria-label="Edit Offer">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                &nbsp;&nbsp;Edit
+                                            </a>
+
+                                            <form action="<?php echo e(url('admin/offers/'.$offer['id'])); ?>" method="post"
+                                                  class="form-inline" role="form" style="display: inline-block;">
+                                                <input type="hidden" name="_method" value="delete">
+                                                <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                                                <button type="submit" class="btn btn-default" aria-label="Delete Offer">
+                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="7">
+                                        There are no categories yet. <a href="<?php echo e(url('admin/offers/create')); ?>">Click here</a> to add an
+                                        offer.
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="float: right;">
+                    <?php echo str_replace('/?', '?', $offers->render()); ?>
+
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin/app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

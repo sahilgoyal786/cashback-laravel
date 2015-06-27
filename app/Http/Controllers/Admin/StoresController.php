@@ -57,11 +57,15 @@ class StoresController extends Controller
     public function store()
     {
         // getting all of the post data
-        $file = array('image' => Input::file('image'), 'name' => Input::get('name'), 'link' => Input::get('link'), 'description' => Input::get('description'), 'featured' => Input::get('featured'));
+        $file = array('image' => Input::file('image'), 'name' => Input::get('name'),
+            'link' => Input::get('link'),
+            'max_cashback' => Input::get('max_cashback'),
+            'description' => Input::get('description'), 'featured' => Input::get('featured'));
         $name = Input::get('name');
         $file['slug'] = str_replace(' ', '-', strtolower($name));
         $store = new Store($file);
-        $rules = ['image' => 'required', "name" => "required", 'description' => 'required',
+        $rules = ['image' => 'required',
+            'max_cashback' => 'required', "name" => "required", 'description' => 'required',
             'slug' => 'required|unique:stores|max:255' , "link" => "required"];
         // doing the validation, passing post data, rules and the messages
         $validator = Validator::make($file, $rules);
@@ -129,13 +133,18 @@ class StoresController extends Controller
         // getting all of the post data
 
 
-        $file = array('image' => Input::file('image'), 'name' => Input::get('name'),  "link" => Input::get('link'), 'description' => Input::get('description'), 'featured' => Input::get('featured'));
+        $file = array('image' => Input::file('image'), 'name' => Input::get('name'),
+            'max_cashback' => Input::get('max_cashback'),
+            "link" => Input::get('link'), 'description' => Input::get('description'), 'featured' => Input::get('featured'));
         $name = Input::get('name');
         $file['slug'] = str_replace(' ', '-', strtolower($name));
         $store = new Store($file);
         $old = Store::findOrFail($id);
         // setting up rules
-        $rules = ["name" => "required", 'description' => 'required', 'slug' => 'required', "link" => "required"]; //mimes:jpeg,bmp,png and for max size max:10000
+        $rules = ["name" => "required",
+            'description' => 'required',
+            'max_cashback' => 'required',
+            'slug' => 'required', "link" => "required"]; //mimes:jpeg,bmp,png and for max size max:10000
         // doing the validation, passing post data, rules and the messages
         $validator = Validator::make($file, $rules);
         if ($validator->fails()) {

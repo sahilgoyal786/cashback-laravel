@@ -1,0 +1,42 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Edit Store</div>
+                    <div class="panel-body">
+                        <?php if(session('status')): ?>
+                            <div class="alert alert-success fade in">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <?php echo e(session('status')); ?>
+
+                            </div>
+                        <?php endif; ?>
+                        <?php if(count($errors) > 0): ?>
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    <?php foreach($errors->all() as $error): ?>
+                                        <li><?php echo e($error); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+
+
+                        <form class="form-horizontal" role="form" enctype="multipart/form-data" method="POST" action="<?php echo e(url('/admin/stores').'/'.$store['id']); ?>">
+                            <input type="hidden"  name="_method" value="PATCH">
+                            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+
+                            <?php echo $__env->make('admin/stores/form',['submitButtonText'=>'Update'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('admin/app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

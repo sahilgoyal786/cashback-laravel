@@ -1,0 +1,12 @@
+<?php $__env->startSection('content'); ?>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <?php echo $__env->make('auth/form/login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

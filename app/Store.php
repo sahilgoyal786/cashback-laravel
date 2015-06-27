@@ -13,7 +13,7 @@ class Store extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'image', 'description', 'featured', 'slug' ,'link'];
+    protected $fillable = ['name', 'image', 'description', 'featured', 'slug' ,'link' , 'max_cashback'];
 
 
     public function scopeOrdered($query)

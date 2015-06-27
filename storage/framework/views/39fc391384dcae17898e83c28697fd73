@@ -3,7 +3,7 @@
     <label class="col-md-4 control-label">Store Name</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="name" value="{{$store['name']}}">
+        <input type="text" class="form-control" name="name" value="<?php echo e($store['name']); ?>">
     </div>
 </div>
 
@@ -11,7 +11,7 @@
     <label class="col-md-4 control-label">Link / URL</label>
 
     <div class="col-md-6">
-        <input type="url" class="form-control" name="link" value="{{$store['link']}}">
+        <input type="url" class="form-control" name="link" value="<?php echo e($store['link']); ?>">
     </div>
 </div>
 
@@ -19,7 +19,7 @@
     <label class="col-md-4 control-label">Max Cashback</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" name="max_cashback" value="{{$store['max_cashback']}}">
+        <input type="text" class="form-control" name="max_cashback" value="<?php echo e($store['max_cashback']); ?>">
     </div>
 </div>
 
@@ -35,7 +35,7 @@
     <label class="col-md-4 control-label">Description (About the Store)</label>
 
     <div class="col-md-6">
-        <textarea class="form-control" name="description" style="height: 300px;">{{$store['description']}}</textarea>
+        <textarea class="form-control" name="description" style="height: 300px;"><?php echo e($store['description']); ?></textarea>
     </div>
 </div>
 
@@ -43,7 +43,7 @@
     <label class="col-md-4 control-label">Featured</label>
 
     <div class="col-md-6">
-        <input type="checkbox" name="featured" @if($store['featured']) {{'checked="true"'}} @endif style="margin-top: 4px;" value="1">
+        <input type="checkbox" name="featured" <?php if($store['featured']): ?> <?php echo e('checked="true"'); ?> <?php endif; ?> style="margin-top: 4px;" value="1">
     </div>
 </div>
 
@@ -51,7 +51,8 @@
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         <button type="submit" class="btn btn-primary">
-            {{$submitButtonText}}
+            <?php echo e($submitButtonText); ?>
+
         </button>
         <button type="reset" class="btn btn-primary">
             Reset
