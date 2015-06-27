@@ -41,7 +41,7 @@ class HomeController extends Controller
     {
 
         $store = Store::slug($slug)->get()->first();
-        return view('general/store')
+        return view('store')
             ->with('store', $store)
             ->with('categories', $store->getCategories()->get())
             ->with('offers', Offer::join('categories', 'offers.category_id', '=', 'categories.id')
@@ -61,15 +61,7 @@ class HomeController extends Controller
     }
 
     public function stores(){
-        return view('general/all_stores')->with('stores',Store::ordered())
-            ->with('featured_offers', Offer::join('categories', 'offers.category_id', '=', 'categories.id')
-                ->join('stores', 'stores.id', '=', 'categories.store_id')
-                ->select('stores.name as store', 'stores.image as store_image', 'categories.name as category',
-                    'categories.cashback as cashback', 'offers.id as id', 'stores.slug as slug',
-                    'offers.name as name', 'offers.link', 'offers.description as description', 'offers.expiry_date')
-                ->orderBy('stores.name', 'asc')
-                ->featured()
-            );
+        return view('stores')->with('stores',Store::ordered());
     }
 
 }

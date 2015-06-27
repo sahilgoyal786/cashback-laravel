@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">All Stores</h1>
+            <?php foreach($stores as $index => $store): ?>
+                <?php if($index%4==0): ?>
+                    <div class="item <?php if($index==0): ?><?php echo e('active'); ?><?php endif; ?>">
+                        <div class="row">
+                            <?php endif; ?>
+                            <div class="col-md-3">
+                                <a href="<?php echo e(url('stores/'.$store['slug'])); ?>" class="thumbnail">
+                                    <img src="<?php echo e(asset($store->image)); ?>" alt="Image" style="max-width:100%;">
+                                </a>
+                            </div>
+                            <?php if($index%4==3 || ($index+1) == count($stores)): ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+        </div>
+        <!--.Carousel-->
+
+    </div>
+</div>

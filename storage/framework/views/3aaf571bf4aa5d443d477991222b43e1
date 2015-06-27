@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Featured Stores</h1>
+
+            <div id="Carousel" class="carousel stores-carousel slide">
+
+                <ol class="carousel-indicators stores-carousel-indicators">
+                    <?php for($count=0;$count<count($featured_stores)/4;$count++): ?>
+                        <li data-target="#Carousel" data-slide-to="<?php echo e($count); ?>" <?php if($count==0): ?><?php echo 'class="active"'; ?><?php endif; ?>></li>
+                    <?php endfor; ?>
+                </ol>
+
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+
+                    <?php foreach($featured_stores as $index => $store): ?>
+                        <?php if($index%4==0): ?>
+                            <div class="item <?php if($index==0): ?><?php echo e('active'); ?><?php endif; ?>">
+                                <div class="row">
+                                    <?php endif; ?>
+                                    <div class="col-md-3">
+                                        <a href="<?php echo e(url('stores/'.$store['slug'])); ?>" class="thumbnail">
+                                            <img src="<?php echo e(asset($store->image)); ?>" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+                                    <?php if($index%4==3 || ($index+1) == count($featured_stores)): ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
+                </div>
+                <!--.carousel-inner-->
+                <a data-slide="prev" href="#Carousel" class="left stores-carousel-control carousel-control">‹</a>
+                <a data-slide="next" href="#Carousel" class="right stores-carousel-control carousel-control">›</a>
+            </div>
+            <!--.Carousel-->
+
+        </div>
+    </div>
+</div><!--.container-->

@@ -171,7 +171,7 @@
             <div class="modal-content">
 
                 <div class="modal-body" id="modal-body">
-                    @include('general/deal')
+                    @include('general.deal')
                 </div>
             </div>
             <!-- /.modal-content -->

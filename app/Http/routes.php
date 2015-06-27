@@ -51,6 +51,6 @@ Route::patch('user/password','User\UsersController@update_password');
 
 
 Route::get('/stores/{id}', 'HomeController@store');
-Route::get('all_stores/', 'HomeController@stores');
+Route::get('all_stores', 'HomeController@stores');
 
 
