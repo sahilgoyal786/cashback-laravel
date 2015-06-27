@@ -6340,5 +6340,9 @@ span.category-cashback-label {
   border: none;
   background: none;
 }
+.thumbnail span {
+  display: block;
+  text-align: center;
+}
 
 /*# sourceMappingURL=app.css.map */

@@ -36,6 +36,7 @@ Route::resource('/admin/stores', 'Admin\StoresController');
 Route::resource('/admin/categories', 'Admin\CategoriesController');
 Route::resource('/admin/offers', 'Admin\OffersController');
 Route::get('/admin/home', 'Admin\HomeController@index');
+Route::get('/admin', 'Admin\HomeController@index');
 
 
 
@@ -51,6 +52,7 @@ Route::patch('user/password','User\UsersController@update_password');
 
 
 Route::get('/stores/{id}', 'HomeController@store');
+Route::get('/categories/{category}', 'HomeController@category');
 Route::get('all_stores', 'HomeController@stores');
 
 

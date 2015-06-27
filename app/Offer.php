@@ -23,7 +23,7 @@ class Offer extends Model
 
     public function scopeFeatured($query)
     {
-        return $query->where('offers.featured', '1')->get();
+        return $query->where('offers.featured', '1');
     }
 
     public function scopeExpired($query)

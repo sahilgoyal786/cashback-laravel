@@ -10,6 +10,13 @@
                             <div class="col-md-3">
                                 <a href="{{url('stores/'.$store['slug'])}}" class="thumbnail">
                                     <img src="{{asset($store->image)}}" alt="Image" style="max-width:100%;">
+                                    <span>
+                                        @if(strcmp($store['max_cashback'],'')==0 || strcmp($store['max_cashback'],'0')==0)
+                                            No cashback
+                                        @else
+                                            Upto {{$store['max_cashback']}} cashback
+                                        @endif
+                                    </span>
                                 </a>
                             </div>
                             @if($index%4==3 || ($index+1) == count($stores))

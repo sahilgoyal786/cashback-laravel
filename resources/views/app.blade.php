@@ -39,17 +39,15 @@
                 <li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
                                         role="button" aria-expanded="false">Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/categories') }}">Electronics</a></li>
-                        <li><a href="{{ url('/categories') }}">Clothing</a></li>
-                        <li><a href="{{ url('/categories') }}">Kitchen</a></li>
+                        <li><a href="{{ url('/categories/electronics') }}">Electronics</a></li>
+                        <li><a href="{{ url('/categories/clothing') }}">Clothing</a></li>
+                        <li><a href="{{ url('/categories/kitchen') }}">Kitchen</a></li>
                     </ul>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
-                    {{--<li><a href="{{ url('/auth/login') }}">Login</a></li>--}}
-                    {{--<li><a href="{{ url('/auth/register') }}">Register</a></li>--}}
                     <li><a href="javascript:void(0)" onclick="showModal('loginModal')">Login</a></li>
                     <li><a href="javascript:void(0)" onclick="showModal('registerModal')">Register</a></li>
                 @else

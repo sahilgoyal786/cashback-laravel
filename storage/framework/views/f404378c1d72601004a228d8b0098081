@@ -10,6 +10,13 @@
                             <div class="col-md-3">
                                 <a href="<?php echo e(url('stores/'.$store['slug'])); ?>" class="thumbnail">
                                     <img src="<?php echo e(asset($store->image)); ?>" alt="Image" style="max-width:100%;">
+                                    <span>
+                                        <?php if(strcmp($store['max_cashback'],'')==0 || strcmp($store['max_cashback'],'0')==0): ?>
+                                            No cashback
+                                        <?php else: ?>
+                                            Upto <?php echo e($store['max_cashback']); ?> cashback
+                                        <?php endif; ?>
+                                    </span>
                                 </a>
                             </div>
                             <?php if($index%4==3 || ($index+1) == count($stores)): ?>

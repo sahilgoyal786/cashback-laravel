@@ -7,7 +7,8 @@
 
                 <ol class="carousel-indicators stores-carousel-indicators">
                     @for($count=0;$count<count($featured_stores)/4;$count++)
-                        <li data-target="#Carousel" data-slide-to="{{$count}}" @if($count==0){!!'class="active"'!!}@endif></li>
+                        <li data-target="#Carousel" data-slide-to="{{$count}}" @if($count==0){!!
+                        'class="active"'!!}@endif></li>
                     @endfor
                 </ol>
 
@@ -22,6 +23,13 @@
                                     <div class="col-md-3">
                                         <a href="{{url('stores/'.$store['slug'])}}" class="thumbnail">
                                             <img src="{{asset($store->image)}}" alt="Image" style="max-width:100%;">
+                                            <span>
+                                                @if(strcmp($store['max_cashback'],'')==0 || strcmp($store['max_cashback'],'0')==0)
+                                                    No cashback
+                                                @else
+                                                    Upto {{$store['max_cashback']}} cashback
+                                                @endif
+                                            </span>
                                         </a>
                                     </div>
                                     @if($index%4==3 || ($index+1) == count($featured_stores))
