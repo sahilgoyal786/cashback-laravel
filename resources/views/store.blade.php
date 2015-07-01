@@ -42,7 +42,7 @@
                     <span class='st_email_large' displayText='Email'></span>
                     <br>
                 </div>
-                <a link="{{url($store['link'])}}" href="javascript:void(0);" class="btn btn-primary center-block btn-lg deal-btn">Visit Store</a>
+                <a link="{{$store['link'].Auth::id()}}" href="javascript:void(0);" class="btn btn-primary center-block btn-lg deal-btn">Visit Store</a>
 
             </div>
         </div>
@@ -62,7 +62,7 @@
                                 <p class="hidden-sm hidden-xs">{{$offer['description']}}</p>
                             </div>
                             <div class="col-md-3 col-md-offset-1 col-sm-4 text-center">
-                                <a id="{{$offer['id']}}" link="{{$offer['link']}}" href="javascript:void(0);"
+                                <a id="{{$offer['id']}}" link="{{$offer['link'].Auth::id()}}" href="javascript:void(0);"
                                    class="btn btn-primary btn-block deal-btn" data-value="Deal Activated">Grab Deal</a>
                                 <br class="hidden-xs">
                                 <a href="javascript:void(0);" class="hiw hidden-xs hidden-sm" id="hiw_13218"
@@ -134,12 +134,14 @@
                 <hr>
                 @if(count($categories))
                     @foreach($categories as $category)
+                        @if(strcmp($category['cashback'],'0')!=0)
                         <p><h4><span class="category-cashback-label">{{$category['cashback']}}</span>
                             &nbsp;&nbsp;{{$category['name']}}</h4></p>
+                        @endif
                     @endforeach
                 @else
                     <hr>
-                    <p>Sorry, there are no Cashback offers.</p>
+                    <div class="alert-warning alert">Sorry, there are no active Cashback offers.</div>
                     <hr>
                 @endif
             </div>

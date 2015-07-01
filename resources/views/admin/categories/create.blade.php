@@ -39,4 +39,9 @@
     </div>
 @endsection
 @section('footer')
+    <script>
+        $('#category').select2({
+            tags: true
+        });
+    </script>
 @endsection

@@ -26,16 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')
-            ->with('featured_stores', Store::featured())
-            ->with('featured_offers', Offer::join('categories', 'offers.category_id', '=', 'categories.id')
-                ->join('stores', 'stores.id', '=', 'categories.store_id')
-                ->select('stores.name as store', 'stores.image as store_image', 'categories.name as category',
-                    'categories.cashback as cashback', 'offers.id as id', 'stores.slug as slug',
-                    'offers.name as name', 'offers.link', 'offers.description as description', 'offers.expiry_date')
-                ->orderBy('stores.name', 'asc')
-                ->featured()->active()
-            );
+        return view('home');
     }
 
     public function store($slug)
@@ -77,5 +68,7 @@ class HomeController extends Controller
             ->select('categories.name as category','stores.max_cashback as max_cashback','stores.name as store_name','stores.image as image', 'stores.slug as slug')->get()
             )->with('category',$category);
     }
+
+
 
 }

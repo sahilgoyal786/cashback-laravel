@@ -11,7 +11,7 @@ class Offer extends Model
     protected $dates = ['expiry_date'];
     protected $table = 'offers';
 
-    protected $fillable = ['name', 'category_id', 'link', 'expiry_date', 'featured','description'];
+    protected $fillable = ['name', 'category_id', 'link', 'expiry_date', 'featured', 'description'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -28,11 +28,25 @@ class Offer extends Model
 
     public function scopeExpired($query)
     {
-        return $query->where('offers.expiry_date', '<',Carbon::now())->get();
+        return $query->where('offers.expiry_date', '<', Carbon::now())->get();
     }
+
     public function scopeActive($query)
     {
-        return $query->where('offers.expiry_date', '>=',Carbon::now())->get();
+        return $query->where('offers.expiry_date', '>=', Carbon::now())->get();
+    }
+
+
+    public static function featuredOffers()
+    {
+        return Offer::join('categories', 'offers.category_id', '=', 'categories.id')
+            ->join('stores', 'stores.id', '=', 'categories.store_id')
+            ->select('stores.name as store', 'stores.image as store_image', 'categories.name as category',
+                'categories.cashback as cashback', 'offers.id as id', 'stores.slug as slug',
+                'offers.name as name', 'offers.link', 'offers.description as description', 'offers.expiry_date')
+            ->orderBy('stores.name', 'asc')
+            ->featured()->active();
+
     }
 
 }

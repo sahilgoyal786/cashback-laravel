@@ -16,7 +16,7 @@
     <label class="col-md-4 control-label">Category Name</label>
 
     <div class="col-md-6">
-        <select name="name" select="{{$category['name']}}" class="form-control">
+        <select name="name" select="{{$category['name']}}" id="category" class="form-control">
             <option>Electronics</option>
             <option>Clothing</option>
             <option>Kitchen</option>
@@ -42,3 +42,4 @@
         </button>
     </div>
 </div>
+

@@ -76,6 +76,6 @@
             </form>
             <br>
             <p class="text-center">OR<br>
-                <a href="javascript:void(0)" onclick="hideModal('registerModal'),showModal('loginModal');" class="btn btn-primary center-block">Login Now</a></p>
+                <a href="javascript:void(0)" onclick="hideModal('registerModal'),showModal('loginModal');" class="btn btn-default">Login Now</a></p>
     </div>
 </div>
