@@ -3,29 +3,39 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center"><?php echo e($category); ?></h1>
-                <?php foreach($stores as $index => $store): ?>
-                    <?php if($index%4==0): ?>
-                        <div class="item <?php if($index==0): ?><?php echo e('active'); ?><?php endif; ?>">
-                            <div class="row">
-                                <?php endif; ?>
-                                <div class="col-md-3">
-                                    <a href="<?php echo e(url('stores/'.$store['slug'])); ?>" class="thumbnail">
-                                        <img src="<?php echo e(asset($store->image)); ?>" alt="Image" style="max-width:100%;">
-                                    <?php /*<span>*/ ?>
-                                        <?php /*<?php if(strcmp($store['max_cashback'],'')==0 || strcmp($store['max_cashback'],'0')==0): ?>*/ ?>
+                <h1 class="text-center"><?php echo e(ucwords($category)); ?></h1>
+                <?php if(count($stores)): ?>
+                    <?php foreach($stores as $index => $store): ?>
+                        <?php if($index%4==0): ?>
+                            <div class="item <?php if($index==0): ?><?php echo e('active'); ?><?php endif; ?>">
+                                <div class="row">
+                                    <?php endif; ?>
+                                    <div class="col-md-3">
+                                        <a href="<?php echo e(url('stores/'.$store['slug'])); ?>" class="thumbnail">
+                                            <img src="<?php echo e(asset($store->image)); ?>" alt="Image" style="max-width:100%;">
+                                            <?php /*<span>*/ ?>
+                                            <?php /*<?php if(strcmp($store['max_cashback'],'')==0 || strcmp($store['max_cashback'],'0')==0): ?>*/ ?>
                                             <?php /*No cashback*/ ?>
-                                        <?php /*<?php else: ?>*/ ?>
+                                            <?php /*<?php else: ?>*/ ?>
                                             <?php /*Upto <?php echo e($store['max_cashback']); ?> cashback*/ ?>
-                                        <?php /*<?php endif; ?>*/ ?>
-                                    <?php /*</span>*/ ?>
-                                    </a>
+                                            <?php /*<?php endif; ?>*/ ?>
+                                            <?php /*</span>*/ ?>
+                                        </a>
+                                    </div>
+                                    <?php if($index%4==3 || ($index+1) == count($stores)): ?>
                                 </div>
-                                <?php if($index%4==3 || ($index+1) == count($stores)): ?>
                             </div>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <br>
+                    <br>
+                    <div class="alert alert-warning alert-dismissable">Currently there are no stores under this category.</div>
+
+                    <br>
+                    <br>
+                    <?php echo $__env->make('general/featured_offers', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
