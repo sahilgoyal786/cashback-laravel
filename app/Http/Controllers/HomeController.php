@@ -53,7 +53,7 @@ class HomeController extends Controller
     }
 
     public function stores(){
-        return view('stores')->with('stores',Store::ordered());
+        return view('stores')->with('stores',Store::ordered()->get());
     }
 
     public function category($category){

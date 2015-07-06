@@ -36,6 +36,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasOne('cashback\PaymentSetting');
     }
 
+    public function transactions(){
+        return $this->hasMany('cashback\Transaction');
+    }
+
     /**
      * @return int
      */
@@ -53,6 +57,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
 
         return false;
+    }
+    
+    public function getAccountStatistics(){
+        $account_statistics = array();
+        $transactions = Transaction::all();
+        $account_statistics['total'] = $transactions->where('type','cashback')->sum('amount');
+        $account_statistics['confirmed'] = $transactions->where('type','cashback')->where('status','Confirmed')->sum('amount');
+        $account_statistics['pending'] = $transactions->where('type','cashback')->where('status','Pending')->sum('amount');
+        $account_statistics['paid'] = $transactions->where('type','payment')->sum('amount');
+        $account_statistics['balance'] = $account_statistics['confirmed'] - $account_statistics['paid'];
+        return $account_statistics;
     }
 
 }

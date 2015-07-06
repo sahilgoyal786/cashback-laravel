@@ -22,7 +22,7 @@
                                         {{$featured_offer->cashback}} cashback</p>
 
                                 <p>
-                                    <a href="#" class="btn btn-primary center-block" style="width: 80%;">Get Deal</a>
+                                    <a href="{{url('stores/'.$featured_offer->slug.'#deal-'.$featured_offer->id)}}" class="btn btn-primary center-block" style="width: 80%;">Get Deal</a>
                                 </p>
                             </div>
                         </div>

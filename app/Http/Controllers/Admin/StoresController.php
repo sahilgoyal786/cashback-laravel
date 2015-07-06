@@ -33,7 +33,7 @@ class StoresController extends Controller
     public function index()
     {
         //
-        $stores = Store::paginate(25);
+        $stores = Store::ordered()->paginate(25);
         return view('admin.stores.index')->with('stores', $stores);
     }
 

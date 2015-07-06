@@ -17,43 +17,12 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <img src="{{asset('carousel/1.jpg')}}" style="width:100%" alt="First slide">
-
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h1>Slide 1</h1>
-
-                                    <p>Aenean a rutrum nulla. Vestibulum a arcu at nisi tristique pretium.</p>
-
-                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                                </div>
-                            </div>
                         </div>
                         <div class="item">
-                            <img src="{{asset('carousel/2.jpg')}}" style="width:100%" data-src="" alt="Second    slide">
-
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h1>Slide 2</h1>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae egestas
-                                        purus. </p>
-
-                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                                </div>
-                            </div>
+                            <img src="{{asset('carousel/2.jpg')}}" style="width:100%" data-src="" alt="Second slide">
                         </div>
                         <div class="item">
                             <img src="{{asset('carousel/3.jpg')}}" style="width:100%" data-src="" alt="Third slide">
-
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h1>Slide 3</h1>
-
-                                    <p>Donec sit amet mi imperdiet mauris viverra accumsan ut at libero.</p>
-
-                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -75,20 +44,23 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> Go to shopping website via <strong>SoftCashPay</strong>
                         </li>
                         <li class="list-group-item">
-                            <span class="glyphicon glyphicon-usd"></span> Cashback gets tracked in your <strong>SoftCashPay
-                                account</strong>
+                            <span class="glyphicon glyphicon-piggy-bank"></span> Cashback gets tracked in your <strong>SoftCashPay
+                            </strong>account in 72 Hours
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-usd"></span> Cashback gets confirmed in 8-12 weeks and is transferred to your bank
                         </li>
                     </ul>
                 </div>
                 @if(Auth::guest())
                     <div class="row">
                         <div class="col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-feat" data-target="#registerModal"
+                            <button type="button" class="btn btn-primary btn-block" data-target="#registerModal"
                                     data-toggle="modal">JOIN
                             </button>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <button type="button" class="btn btn-orange btn-feat" data-target="#loginModal"
+                            <button type="button" class="btn btn-orange btn-block" data-target="#loginModal"
                                     data-toggle="modal">LOGIN
                             </button>
                         </div>

@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+    @include('user/account_overview')
     <br>
     <div class="container">
         <div class="row">

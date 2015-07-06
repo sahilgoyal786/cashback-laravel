@@ -61,11 +61,11 @@
         });
     });
 
-    $('#store_search').select2({
+    $('.store_search').select2({
         placeholder: 'Search'
         //, tags: true
     });
-    $('#store_search').on('change', function () {
+    $('.store_search').on('change', function () {
         window.location = '<?php echo e(url('stores')); ?>/' + $(this).val();
     });
     $('.select2-selection__arrow').html('<i class="glyphicon glyphicon-search" style="top:5px;"></i>');
@@ -97,5 +97,6 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<?php echo $__env->make('general/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </body>
 </html>

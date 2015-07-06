@@ -149,6 +149,7 @@ return [
 
         'Laravel\Socialite\SocialiteServiceProvider',
         'Greggilbert\Recaptcha\RecaptchaServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
 	],
 

@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default" style="margin-bottom: 0;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -10,6 +9,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{url('/')}}">SoftCashPay</a>
+
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="visible-xs" style="margin: 10px 0;">
+                    <select class="form-control store_search" id="store_search">
+                        <option></option>
+                        @foreach($all_stores as $store)
+                            <option value="{{$store['slug']}}">{{$store['name']}}</option>
+                        @endforeach
+                    </select>
+                </form>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,8 +51,8 @@
                     </li>
                 @endif
             </ul>
-            <form class="navbar-form navbar-right">
-                <select class="form-control" id="store_search">
+            <form class="navbar-form navbar-right hidden-xs">
+                <select class="form-control store_search" id="store_search">
                     <option></option>
                     @foreach($all_stores as $store)
                         <option value="{{$store['slug']}}">{{$store['name']}}</option>

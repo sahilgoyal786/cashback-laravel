@@ -17,9 +17,9 @@
 
     <div class="col-md-6">
         <select name="name" select="{{$category['name']}}" id="category" class="form-control">
-            <option>Electronics</option>
-            <option>Clothing</option>
-            <option>Kitchen</option>
+            @foreach($all_categories as $cat)
+                <option value="{{$cat['name']}}">{{$cat['name']}}</option>
+            @endforeach
         </select>
     </div>
 </div>

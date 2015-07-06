@@ -54,7 +54,6 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -106,7 +105,7 @@ class UsersController extends Controller
     public function payment_settings()
     {
         $user = \Auth::user();
-        if ($user->payment_setting) {
+        if ($user->payment_setting()) {
             $settings = $user->payment_setting()->first();
         } else {
             $settings = new PaymentSetting();
@@ -179,6 +178,20 @@ class UsersController extends Controller
             return view('user.password')->withErrors(["msg"=>"The old password was incorrect."]);
         }
 
+    }
+
+    public function earnings(){
+        $user = Auth::user();
+        $transactions = $user->transactions()->ordered()->paginate(25)->where('type','cashback');
+        return view('user.earnings')
+            ->with('transactions',$transactions);
+    }
+
+    public function payments(){
+        $user = Auth::user();
+        $transactions = $user->transactions()->ordered()->paginate(25)->where('type','payment');
+        return view('user.payments')
+            ->with('transactions',$transactions);
     }
 
 }

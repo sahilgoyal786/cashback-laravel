@@ -69,13 +69,13 @@
                     <div class="col-md-6 col-md-offset-4">
 
                         {!! Recaptcha::render() !!}<br>
-                        <button type="submit" class="btn btn-primary">Register</button>
                     </div>
                 </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
 
             </form>
             <br>
             <p class="text-center">OR<br>
-                <a href="javascript:void(0)" onclick="hideModal('registerModal'),showModal('loginModal');" class="btn btn-default">Login Now</a></p>
+                <a href="javascript:void(0)" onclick="hideModal('registerModal'),showModal('loginModal');" class="btn btn-default btn-block">Login Now</a></p>
     </div>
 </div>

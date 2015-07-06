@@ -1,4 +1,3 @@
-
 <div class="panel panel-default">
     <div class="panel-heading">Login</div>
     <div class="panel-body">
@@ -12,17 +11,18 @@
                 </ul>
             </div>
         @endif
-            <div class="col-md-12 text-center">
-                <a href="{{url('auth/login/facebook')}}" class="btn btn-primary login-with-fb">Login with Facebook</a>
-                <br>
-                <br>
-            </div>
+        <div class="col-md-12 text-center">
+            <a href="{{url('auth/login/facebook')}}" class="btn btn-primary login-with-fb">Login with Facebook</a>
+            <br>
+            <br>
+        </div>
 
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
                 <label class="col-md-4 control-label">E-Mail Address / Phone No.</label>
+
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="email" value="{{ old('email') }}">
                 </div>
@@ -30,6 +30,7 @@
 
             <div class="form-group">
                 <label class="col-md-4 control-label">Password</label>
+
                 <div class="col-md-6">
                     <input type="password" class="form-control" name="password">
                 </div>
@@ -47,14 +48,16 @@
 
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">Login</button>
 
                     <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
                 </div>
             </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
         <br>
-            <p class="text-center">OR<br>
-                <a href="javascript:void(0)" onclick="hideModal('loginModal'),showModal('registerModal');" class="btn btn-default">Register Now</a></p>
+
+        <p class="text-center">OR<br>
+            <a href="javascript:void(0)" onclick="hideModal('loginModal'),showModal('registerModal');"
+               class="btn btn-default btn-block">Register Now</a></p>
     </div>
 </div>

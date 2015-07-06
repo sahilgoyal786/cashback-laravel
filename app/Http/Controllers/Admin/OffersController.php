@@ -48,7 +48,7 @@ class OffersController extends Controller
             ->select(['stores.name as store_name', 'categories.name', 'categories.id'])->orderBy('stores.name', 'asc')->get();
 
         $values = [];
-        $stores = Store::ordered();
+        $stores = Store::ordered()->get();
         foreach ($stores as $store) {
             $cats = [];
             foreach ($categories as $category) {
@@ -115,7 +115,7 @@ class OffersController extends Controller
             ->select(['stores.name as store_name', 'categories.name', 'categories.id'])
             ->orderBy('stores.name', 'asc')
             ->orderBy( 'categories.name','asc')->get();
-        $stores = Store::ordered();
+        $stores = Store::ordered()->get();
 
         $values = [];
         foreach ($stores as $store) {

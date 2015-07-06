@@ -2,7 +2,10 @@
 
 use cashback\Http\Requests;
 use cashback\Http\Controllers\Controller;
+use cashback\Transaction;
 use cashback\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller {
 
@@ -29,25 +32,6 @@ class UsersController extends Controller {
 
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
 
 	/**
 	 * Display the specified resource.
@@ -57,7 +41,14 @@ class UsersController extends Controller {
 	 */
 	public function view($id)
 	{
+        $user = User::find($id);
 
+
+        return view('admin.users.view')
+            ->with('account',$user->getAccountStatistics())
+            ->with('transactions',$user->transactions()->get())
+            ->with('payment_setting',$user->payment_setting()->first())
+            ->with('user',$user);
 	}
 
 	/**
@@ -73,17 +64,18 @@ class UsersController extends Controller {
         return view('admin.users.edit')->with('user',$user);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int $id
+     * @param Request $request
+     * @return Response
+     */
+	public function update($id,Request $request)
 	{
-
-
-
+        $user = User::find($id);
+        $user->update($request->all());
+        return redirect('admin/users');
 
 	}
 
@@ -95,8 +87,6 @@ class UsersController extends Controller {
 	 */
 	public function delete($id)
 	{
-		//
-
         User::destroy($id);
         return redirect('admin/users');
 	}

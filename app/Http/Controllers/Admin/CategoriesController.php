@@ -1,6 +1,7 @@
 <?php namespace cashback\Http\Controllers\Admin;
 
 use cashback\Category;
+use cashback\Constants;
 use cashback\Http\Requests;
 use cashback\Http\Controllers\Controller;
 
@@ -28,7 +29,7 @@ class CategoriesController extends Controller
     {
         //
 
-        $categories = Category::join('stores', 'stores.id', '=', 'categories.store_id')
+        $categories = Category::join('stores', 'stores.id', '=', 'categories.store_id')->orderBy('stores.name')
             ->paginate(25,array('stores.image', 'categories.cashback', 'categories.name', 'categories.id'));
 
         return view('admin.categories.index')->with('categories', $categories);
@@ -43,8 +44,9 @@ class CategoriesController extends Controller
     {
         //
         return view('admin.categories.create')
-            ->with('stores', Store::ordered())
+            ->with('stores', Store::ordered()->get())
             ->with('current_store', new Store())
+            ->with('all_categories', Constants::availableCategories())
             ->with('category', new Category());
     }
 
@@ -89,8 +91,9 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         return view('admin.categories.edit')
-            ->with('stores', Store::ordered())
+            ->with('stores', Store::ordered()->get())
             ->with('current_store', $category->getStore())
+            ->with('all_categories', Constants::availableCategories())
             ->with('category', $category);
     }
 

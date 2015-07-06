@@ -16,8 +16,11 @@ class AppServiceProvider extends ServiceProvider {
 	{
 		//
 
-        view()->composer('app',function($view){
-            $view->with('all_stores',Store::ordered())->with('all_categories',Constants::availableCategories());
+        view()->composer('general.nav',function($view){
+            $view->with('all_stores',Store::ordered()->get())->with('all_categories',Constants::availableCategories());
+        });
+        view()->composer('general.footer',function($view){
+            $view->with('all_categories',Constants::availableCategories());
         });
         view()->composer('general.featured_offers',function($view){
             $view->with('featured_offers',Offer::featuredOffers());

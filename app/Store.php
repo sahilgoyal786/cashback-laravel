@@ -18,7 +18,7 @@ class Store extends Model
 
     public function scopeOrdered($query)
     {
-        return $query->orderBy('name', 'asc')->get();
+        return $query->orderBy('name', 'asc');
     }
 
 
