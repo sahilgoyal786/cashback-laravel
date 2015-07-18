@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center">All Stores</h1>
+            {!! Breadcrumbs::render('all_stores') !!}
             @foreach($stores as $index => $store)
                 @if($index%4==0)
                     <div class="item @if($index==0){{'active'}}@endif">

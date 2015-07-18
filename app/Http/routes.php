@@ -59,3 +59,23 @@ Route::get('/categories/{category}', 'HomeController@category');
 Route::get('all_stores', 'HomeController@stores');
 
 
+
+
+//Static Pages
+
+
+Route::get('about', function(){
+    return view('static_pages/about');
+});
+Route::get('terms', function(){
+    return view('static_pages/terms');
+});
+Route::get('privacy', function(){
+    return view('static_pages/privacy');
+});
+Route::get('contact', function(){
+    return view('static_pages/contact');
+});
+Route::get('how-it-works', function(){
+    return view('static_pages/how-it-works');
+});

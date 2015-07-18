@@ -48,7 +48,7 @@
                             </strong>account in 72 Hours
                         </li>
                         <li class="list-group-item">
-                            <span class="glyphicon glyphicon-usd"></span> Cashback gets confirmed in 8-12 weeks and is transferred to your bank
+                            <span class="fa fa-inr fa-2x"></span> Cashback gets confirmed in 8-12 weeks and is transferred to your bank
                         </li>
                     </ul>
                 </div>
@@ -72,6 +72,8 @@
     </div>
     <br><br>
     @include('general/featured_stores')
+    <br><br>
+    @include('general/steps')
     <br><br>
     @include('general/featured_offers')
 @endsection

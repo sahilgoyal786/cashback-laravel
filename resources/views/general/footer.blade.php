@@ -10,11 +10,11 @@
                 <ul>
                     <li><a href="{{url('/')}}">Home</a></li>
                     <li><a href="{{url('/all_stores')}}">All Stores</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">How it Works</a></li>
-                    <li><a href="#">Support/FAQs</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{{url('/terms')}}">Terms & Conditions</a></li>
+                    <li><a href="{{url('/privacy')}}">Privacy Policy</a></li>
+                    <li><a href="{{url('/how-it-works')}}">How it Works</a></li>
+                    <li><a href="{{url('/about')}}">About Us</a></li>
+                    <li><a href="{{url('/contact')}}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="col-sm-4 col-sm-offset-2">
@@ -22,7 +22,7 @@
                 <h4>Categories</h4>
                 <ul>
                     @foreach($all_categories as $category)
-                        <li><a href="{{ url('/categories/'.$category['slug']) }}">{{$category['name']}}</a></li>
+                        <li><a href="{{ url('/categories/'.$category['slug']) }}">{{ucwords($category['name'])}}</a></li>
                     @endforeach
                 </ul>
             </div>

@@ -4,6 +4,9 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-center"><?php echo e(ucwords($category)); ?></h1>
+                <br>
+                <?php echo Breadcrumbs::render('category',$category); ?>
+
                 <?php if(count($stores)): ?>
                     <?php foreach($stores as $index => $store): ?>
                         <?php if($index%4==0): ?>

@@ -11,6 +11,9 @@
         });</script>
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+            {!! Breadcrumbs::render('store',$store) !!}
+            </div>
             <div class="col-sm-6 col-md-8">
                 <div class="media">
                     <div class="pull-left-md text-center">

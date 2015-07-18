@@ -6,6 +6,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-center">{{ucwords($category)}}</h1>
+                <br>
+                {!! Breadcrumbs::render('category',$category) !!}
                 @if(count($stores))
                     @foreach($stores as $index => $store)
                         @if($index%4==0)

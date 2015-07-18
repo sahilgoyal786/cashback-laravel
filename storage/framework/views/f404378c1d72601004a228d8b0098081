@@ -2,6 +2,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center">All Stores</h1>
+            <?php echo Breadcrumbs::render('all_stores'); ?>
+
             <?php foreach($stores as $index => $store): ?>
                 <?php if($index%4==0): ?>
                     <div class="item <?php if($index==0): ?><?php echo e('active'); ?><?php endif; ?>">

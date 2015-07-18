@@ -150,6 +150,7 @@ return [
         'Laravel\Socialite\SocialiteServiceProvider',
         'Greggilbert\Recaptcha\RecaptchaServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 
 	],
 
@@ -203,6 +204,7 @@ return [
         'Flash'      => 'Laracasts\Flash\Flash',
         'Socialite' => 'Laravel\Socialite\Facades\Socialite',
         'Recaptcha' => 'Greggilbert\Recaptcha\Facades\Recaptcha',
+        'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
 
 	],
 
