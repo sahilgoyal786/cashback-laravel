@@ -35,7 +35,7 @@
             </div>
             <div class="col-sm-4 slider-box hidden-xs right-box-homepage">
                 <div class="well padding md-200">
-                    <h2 class="text-center">Earn cashback</h2>
+                    <h2 class="text-center" style="margin-top: 0;margin-bottom: 7px;">Earn cashback</h2>
                     <ul class="list-group hidden-sm">
                         <li class="list-group-item">
                             <span class="glyphicon glyphicon-plus"></span> Join SoftCashPay For <strong>Free</strong>
