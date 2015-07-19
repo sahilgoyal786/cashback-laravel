@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-block" data-target="#registerModal"
-                                    data-toggle="modal">JOIN
+                                    data-toggle="modal">REGISTER
                             </button>
                         </div>
                         <div class="col-xs-6 text-center">
