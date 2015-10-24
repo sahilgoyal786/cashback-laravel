@@ -21,10 +21,10 @@ class Registrar implements RegistrarContract
             'mobile_no' => 'required|numeric|unique:users|digits:10',
             'password' => 'required|confirmed|min:6',
             'agree' => 'required',
-            'g-recaptcha-response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required',
         ], array(
             'agree.required' => 'You need to agree to the terms and conditions to register.',
-            'g-recaptcha-response.required' => 'Please confirm you are a human.',
+            'g-recaptcha-response.required' => 'Please confirm you are a human and not a robot.',
         ));
     }
 

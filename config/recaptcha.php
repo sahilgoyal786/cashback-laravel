@@ -47,7 +47,7 @@ return array(
     */    
     'options'       => array(
         
-        'curl_timeout' => 1,
+        'curl_timeout' => 60,
         
     ),
 

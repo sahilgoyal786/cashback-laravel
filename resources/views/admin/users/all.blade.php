@@ -38,10 +38,12 @@
                                            aria-label="Edit User">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp;&nbsp;Edit
                                         </a>
-                                        <a href="users/delete/{{$user['id']}}" type="button" class="btn btn-default"
-                                           aria-label="Delete User">
-                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete
-                                        </a>
+                                        @if(Auth::getUser()['email'] != $user['email'])
+                                            <a href="users/delete/{{$user['id']}}" type="button" class="btn btn-default"
+                                               aria-label="Delete User">
+                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
