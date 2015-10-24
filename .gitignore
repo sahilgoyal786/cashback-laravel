@@ -3,3 +3,4 @@
 /storage
 .env
 .env_production
+public/stores/
