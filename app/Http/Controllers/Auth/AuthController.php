@@ -4,6 +4,7 @@ use cashback\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller {
@@ -84,6 +85,8 @@ class AuthController extends Controller {
         $request['user_type'] = 'normal';
         $this->auth->login($this->registrar->create($request));
 
+
+        Session::flash('status', 'Congratulations, Your account has been created successfully, lets go shopping!');
 
         return redirect($this->redirectPath());
     }

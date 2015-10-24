@@ -98,6 +98,30 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body" id="modal-body">
+                <p id="message"></p>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @include('general/footer')
+
+@if (session('status'))
+    <script type="text/javascript">
+
+        $(window).load(function(){
+            $('#messageModal').find('#message').html('{{session('status')}}');
+            $('#messageModal').modal('show');
+        });
+    </script>
+@endif
 </body>
 </html>
